@@ -1,95 +1,131 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ModalPortal from "./ModalPortal";
+
+// 🏗️ Imágenes de los proyectos
+import CicloA1 from "./assets/Ciclo A/Ciclo A 1.png";
+import CicloA2 from "./assets/Ciclo A/Ciclo A 2.png";
+import CicloA3 from "./assets/Ciclo A/Ciclo A 3.png";
+import CicloA4 from "./assets/Ciclo A/Ciclo A 4.png";
+import CicloA5 from "./assets/Ciclo A/Ciclo A 5.png";
+import CicloA6 from "./assets/Ciclo A/Ciclo A 6.png";
+import CicloA7 from "./assets/Ciclo A/Ciclo A 7.png";
+import CicloA8 from "./assets/Ciclo A/Ciclo A 8.png";
+import Primsaterra1 from "./assets/Prismaterra/Prismaterra 1.png";
+import Primsaterra2 from "./assets/Prismaterra/Prismaterra 2.png";
+import Primsaterra3 from "./assets/Prismaterra/Prismaterra 3.png";
+import Primsaterra4 from "./assets/Prismaterra/Prismaterra 4.png";
+import Primsaterra5 from "./assets/Prismaterra/Prismaterra 5.png";
+import Primsaterra6 from "./assets/Prismaterra/Prismaterra 6.png";
+import Primsaterra7 from "./assets/Prismaterra/Prismaterra 7.png";
+import Primsaterra8 from "./assets/Prismaterra/Prismaterra 8.png";
+import ModuloVerde1 from "./assets/Modulo Verde/Modulo Verde 1.png";
+import ModuloVerde2 from "./assets/Modulo Verde/Modulo Verde 2.png";
+import ModuloVerde3 from "./assets/Modulo Verde/Modulo Verde 3.png";
+import ModuloVerde4 from "./assets/Modulo Verde/Modulo Verde 4.png";
+import ModuloVerde5 from "./assets/Modulo Verde/Modulo Verde 5.png";
+import ModuloVerde6 from "./assets/Modulo Verde/Modulo Verde 6.png";
+import ModuloVerde7 from "./assets/Modulo Verde/Modulo Verde 7.png";
 
 const PROJECTS = [
   {
     id: 1,
-    title: "Civic Canopy Pavilion",
-    image: "https://images.unsplash.com/photo-1529429612776-0a0f1a9b1b52?q=80&w=800",
-    gallery: [
-      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200",
-      "https://images.unsplash.com/photo-1558021211-7df8d00a3d5c?q=80&w=1200",
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200",
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1200",
-      "https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1200",
-    ],
+    title: "Ciclo A",
+    location: "GUADALAJARA, MÉXICO",
+    image: CicloA1,
+    gallery: [CicloA1, CicloA2, CicloA3, CicloA4, CicloA5, CicloA6, CicloA7, CicloA8],
   },
   {
     id: 2,
-    title: "Riverfront Hub",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800",
-    gallery: [
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200",
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200",
-      "https://images.unsplash.com/photo-1473187983305-f615310e7daa?q=80&w=1200",
-    ],
+    title: "Prismaterra",
+    location: "GUADALAJARA, MÉXICO",
+    image: Primsaterra1,
+    gallery: [Primsaterra1, Primsaterra2, Primsaterra3, Primsaterra4, Primsaterra5, Primsaterra6, Primsaterra7, Primsaterra8],
+  },
+  {
+    id: 3,
+    title: "Módulo Verde",
+    location: "GUADALAJARA, MÉXICO",
+    image: ModuloVerde1,
+    gallery: [ModuloVerde1, ModuloVerde2, ModuloVerde3, ModuloVerde4, ModuloVerde5, ModuloVerde6, ModuloVerde7],
   },
 ];
 
 export default function CrossMenu() {
   const [selected, setSelected] = useState(null);
 
-  return (
-    <div className="relative flex flex-col items-center justify-start py-20 space-y-10">
-      {PROJECTS.map((p) => (
-        <motion.div
-          key={p.id}
-          className="relative cursor-pointer"
-          whileHover={{ scale: 1.02 }}
-          onClick={() => setSelected(p)}
-        >
-          <img
-            src={p.image}
-            alt={p.title}
-            className="w-[600px] object-cover rounded-2xl shadow-lg"
-          />
-          <h2 className="absolute bottom-4 left-6 text-lg font-semibold bg-black/50 px-3 py-1 rounded-md">
-            {p.title}
-          </h2>
-        </motion.div>
-      ))}
+  console.log("Proyecto seleccionado:", selected?.title || "ninguno");
 
-      {/* Galería horizontal al abrir una línea */}
+  return (
+    <div className="w-full bg-white text-neutral-900 relative z-10">
+      <div className="max-w-6xl mx-auto py-32 space-y-32">
+        {PROJECTS.map((p) => (
+          <motion.div
+            key={p.id}
+            className="flex flex-col items-center text-center space-y-6 cursor-pointer"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            onClick={() => setSelected(p)}
+          >
+            <motion.img
+              src={p.image}
+              alt={p.title}
+              className="w-[500px] h-auto object-cover rounded-md shadow-sm hover:brightness-105 transition duration-500 mx-auto"
+            />
+            <div className="space-y-2">
+              <h2 className="text-3xl font-light tracking-tight hover:text-neutral-600 transition duration-300">
+                {p.title}
+              </h2>
+              <p className="text-sm text-neutral-500 tracking-widest uppercase">
+                {p.location}
+              </p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Modal tipo galería */}
       <AnimatePresence>
         {selected && (
-          <motion.div
-            key={selected.id}
-            className="fixed inset-0 bg-black/95 flex flex-col z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelected(null)}
-          >
-            {/* Header del proyecto */}
-            <div className="flex justify-between items-center px-8 py-6 border-b border-white/10">
-              <h2 className="text-2xl font-semibold">{selected.title}</h2>
-              <button
-                onClick={() => setSelected(null)}
-                className="text-white/60 hover:text-white transition"
-              >
-                ✕
-              </button>
-            </div>
-
-            {/* Galería scrolleable horizontal */}
+          <ModalPortal>
             <motion.div
-              className="flex gap-6 overflow-x-auto px-8 py-10 no-scrollbar"
-              initial={{ x: 200 }}
-              animate={{ x: 0 }}
-              exit={{ x: 200 }}
-              onClick={(e) => e.stopPropagation()}
+              key="modal"
+              className="fixed inset-0 bg-black/95 flex flex-col z-[9999] overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelected(null)}
             >
-              {selected.gallery.map((img, idx) => (
-                <motion.img
-                  key={idx}
-                  src={img}
-                  className="w-[700px] h-[500px] object-cover rounded-xl border border-white/10 shrink-0"
-                  whileHover={{ scale: 1.05 }}
-                />
-              ))}
+              <div
+                className="flex justify-between items-center px-10 py-6 border-b border-white/10 sticky top-0 bg-black/90 backdrop-blur-md"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <h2 className="text-2xl font-light tracking-wide">{selected.title}</h2>
+                <button
+                  onClick={() => setSelected(null)}
+                  className="text-white/60 hover:text-white transition text-2xl"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <motion.div
+                className="flex gap-8 overflow-x-auto px-10 py-10 no-scrollbar"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {selected.gallery?.map((img, idx) => (
+                  <motion.img
+                    key={idx}
+                    src={img}
+                    alt={`${selected.title} ${idx + 1}`}
+                    className="w-[800px] h-auto object-cover rounded-lg border border-white/10 shrink-0 hover:scale-105 transition-transform duration-300"
+                  />
+                ))}
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </ModalPortal>
         )}
       </AnimatePresence>
     </div>
