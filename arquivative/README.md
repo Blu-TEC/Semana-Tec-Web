@@ -1,16 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Semana-Tec-Web
+Arquivative es una galería interactiva que muestra proyectos arquitectónicos mediante imágenes y modelos 3D, desarrollada con React, Vite, TailwindCSS, Framer Motion y React Three Fiber. Para ejecutarlo necesitas tener instalado Node.js (versión 18 o superior) y npm. Una vez clonado el repositorio, entra a la carpeta del proyecto con cd arquivative y ejecuta npm install para instalar las dependencias. La estructura principal del proyecto incluye los archivos App.jsx (rutas principales), main.jsx (punto de entrada), index.css (estilos globales), NavBar.jsx (barra de navegación), ModalPortal.jsx (portal para los modales de imágenes), Home.jsx (página principal con la galería), Modelos3D.jsx (página del modelo 3D interactivo), projects.js (datos de los proyectos con sus imágenes) y CrossMenu.jsx (componente que muestra los proyectos). Para correr la aplicación usa el comando npm run dev y abre el enlace que aparece en consola.
+El sitio tiene dos secciones: Home, donde puedes ver los proyectos y abrir sus galerías con animaciones fluidas, y Modelos 3D, donde puedes interactuar con modelos GLB dentro de una escena iluminada. Asegúrate de tener tus modelos dentro de la carpeta public/models/ (por ejemplo, public/models/InteriorTest.glb) y las imágenes en src/assets/ según lo configurado en projects.js. Si Tailwind no compila, revisa tu archivo postcss.config.js y asegúrate de tener el plugin @tailwindcss/postcss correctamente configurado.
