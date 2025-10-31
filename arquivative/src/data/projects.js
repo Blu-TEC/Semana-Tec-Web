@@ -1,4 +1,3 @@
-// 🏗️ Importa las imágenes
 import CicloA1 from "../assets/Ciclo A/Ciclo A 1.png";
 import CicloA2 from "../assets/Ciclo A/Ciclo A 2.png";
 import CicloA3 from "../assets/Ciclo A/Ciclo A 3.png";
@@ -25,7 +24,6 @@ import ModuloVerde5 from "../assets/Modulo Verde/Modulo Verde 5.png";
 import ModuloVerde6 from "../assets/Modulo Verde/Modulo Verde 6.png";
 import ModuloVerde7 from "../assets/Modulo Verde/Modulo Verde 7.png";
 
-// 📦 Exporta todos los proyectos
 export const PROJECTS = [
   {
     id: 1,
