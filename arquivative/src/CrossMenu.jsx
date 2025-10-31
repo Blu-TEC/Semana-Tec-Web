@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ModalPortal from "./ModalPortal";
-import { PROJECTS } from "./data/projects"; // 👈 importación del JSON
+import { PROJECTS } from "./data/projects"; 
 
 export default function CrossMenu() {
   const [selected, setSelected] = useState(null);
@@ -36,7 +36,6 @@ export default function CrossMenu() {
         ))}
       </div>
 
-      {/* Modal tipo galería */}
       <AnimatePresence>
         {selected && (
           <ModalPortal>
